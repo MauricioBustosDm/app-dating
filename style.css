@@ -1,0 +1,35 @@
+body {
+    background-color: #C5D1CC;
+}
+
+
+.header {
+    display: flex;
+    flex-direction: row;
+}
+
+.div-pug {
+    width: 600px;
+    padding-left: 30px;
+}
+
+.img-pug {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    border: 15px solid #FBF9EE;
+}
+
+#watch {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 200px;
+    height: 200px;
+    border: 2px solid #000;
+
+}
+
+.h1-header {
+    width: 500px;
+}

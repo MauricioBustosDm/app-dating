@@ -1,0 +1,36 @@
+section {
+    display: flex;
+    flex-direction: row;
+    background-color: #C1CEC7;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.user-section {
+    display: flex;
+    flex-direction: column;
+    width: 180px;
+    height: 280px;
+    margin: 10px;
+    padding: 10px;
+    background-color: #FAFAE7;
+    border-radius: 10px;
+}
+
+img {
+    width: 180px;
+    height: 250px;
+    border-radius: 10px;
+}
+
+.buttons-user {
+    height: 50px;
+}
+
+.delete-user {
+    margin-left: 100px;
+    border-radius: 10px;
+    background-color: #f33;
+    color: #fff;
+
+}

@@ -1,0 +1,21 @@
+.div-filters {
+    display: flex;
+    justify-content: end;
+    padding-right: 90px;
+}
+
+.button-favorite {
+    border: 0px;
+}
+
+.img-heart {
+    width: 50px;
+    height: 50px;
+}
+
+.button-gender {
+    border: 5px solid #f44;
+    margin-left: 20px;
+    width: 200px;
+    height: 50px;
+}
