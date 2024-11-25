@@ -17,11 +17,4 @@ export const datingApp = async (element) => {
     currentTime();
 }
 
-const ElementsIds = {
-    usersList: '#app'
-}
-const usersListId = document.querySelector(ElementsIds.usersList);
-usersListId.addEventListener('click', (event) => {
-    const element = event.target.closest('data-id');
-    console.log(element);
-})
+

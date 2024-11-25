@@ -1,3 +1,4 @@
+import { renderSection } from "../presentation/render-table/render-table";
 import { loadUsers } from "../use-cases/load-users"
 
 const state = {
@@ -7,8 +8,8 @@ const state = {
 const loadPage = async () => {
     const users = await loadUsers()
     state.users = users;
-
 }
+
 const onUserChanged = async (id) => {
     const users = await loadUsers()
     state.users = users;
@@ -16,7 +17,17 @@ const onUserChanged = async (id) => {
         if (user.fullId === id) {
             user.isFavorite = !user.isFavorite;
         }
-        return user;
+        return state.users;
+    })
+}
+const filterM = async () => {
+    const users = await loadUsers()
+    state.users = users;
+    state.users = state.users.map(user => {
+        if (user.gender === 'male') {
+            return user;
+        }
+        return state.users;
     })
 
 }
@@ -24,13 +35,12 @@ const onUserChanged = async (id) => {
 const deleteUser = async (id) => {
     const users = await loadUsers()
     state.users = users;
-    state.users = state.users.map(user => {
-        if (user.fullId === id) {
-            users.splice(user,1);
-        }
-        return user;
-    })
 
+    const index = users.findIndex((user)=>{
+        return user.fullId == id;
+    })
+    users.splice(index, 1)
+      
 }
 
 export default {

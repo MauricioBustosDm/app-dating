@@ -7,12 +7,33 @@ const createSection = () => {
 
     return section;
 }
+const sectionFemaleListener = async (event) => {
+    const element = event.target.closest('#female-id');
+    if (!element) return;
+
+    
+
+}
+const sectionMaleListener = async (event) => {
+    const element = event.target.closest('#male-id');
+    if (!element) return;
+
+   
+
+}
+const sectionFavoriteListener = async (event) => {
+    const element = event.target.closest('#favorite-id');
+    if (!element) return;
+
+   
+
+}
 const sectionSelectListener = async (event) => {
     const element = event.target.closest('.select-user');
     if (!element) return;
 
     const id = element.getAttribute('data-id')
-    await onUserChanged(id);
+    await usersStore.onUserChanged(id);
 
 }
 const sectionDeleteListener = async (event) => {
@@ -20,15 +41,20 @@ const sectionDeleteListener = async (event) => {
     if (!element) return;
 
     const id = element.getAttribute('data-id')
-    await deleteUser(id)
-
+    await usersStore.deleteUser(id)
+    console.log(id)
+    renderSection();
 }
 export const renderSection = (element) => {
     const users = usersStore.getUsers();
     if (!section) {
         section = createSection();
         element.append(section);
-        //TODO LISTENERS A LA TABLA
+
+        section.addEventListener('click', sectionFemaleListener);
+        section.addEventListener('click', sectionMaleListener);
+        section.addEventListener('click', sectionFavoriteListener);
+        
         section.addEventListener('click', sectionSelectListener);
         section.addEventListener('click', sectionDeleteListener);
     }
@@ -47,12 +73,6 @@ export const renderSection = (element) => {
         `
     });
     section.innerHTML = sectionHTML;
-    ////DELETE
-    ////const deleteUser = (id) => {
-    //   const index = users.findIndex((user)=>{
-    //      return user.id == id;
-    //  })
-    //  console.log(users[index]);
-    ////}
+    
 }
 
