@@ -10,12 +10,22 @@ const loadPage = async () => {
     state.users = users;
 }
 
-const onUserChanged = async (id) => {
+const onUserChangedFavorite = async (id) => {
     const users = await loadUsers()
     state.users = users;
     state.users = state.users.map(user => {
         if (user.fullId === id) {
             user.isFavorite = !user.isFavorite;
+        }
+        return state.users;
+    })
+}
+const filterFavorites = async () => {
+    const users = await loadUsers()
+    state.users = users;
+    state.users = state.users.map(user => {
+        if (user.isFavorite === 'true') {
+            return user;
         }
         return state.users;
     })
@@ -29,7 +39,16 @@ const filterM = async () => {
         }
         return state.users;
     })
-
+}
+const filterF = async () => {
+    const users = await loadUsers()
+    state.users = users;
+    state.users = state.users.map(user => {
+        if (user.gender === 'female') {
+            return user;
+        }
+        return state.users;
+    })
 }
 
 const deleteUser = async (id) => {
@@ -44,8 +63,11 @@ const deleteUser = async (id) => {
 }
 
 export default {
+    filterM,
+    filterF,
+    filterFavorites,
     loadPage,
-    onUserChanged,
+    onUserChangedFavorite,
     deleteUser,
     getUsers: () => [...state.users],
 }

@@ -21,7 +21,7 @@ export const localUserToModel = (localHostUser) => {
         fullId: id.value,
         gender,
         fullName: name.first + " " + name.last,
-        fullPicture: picture.medium,
+        fullPicture: picture.large,
         isFavorite: false,
     });
 

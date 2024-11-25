@@ -7,33 +7,13 @@ const createSection = () => {
 
     return section;
 }
-const sectionFemaleListener = async (event) => {
-    const element = event.target.closest('#female-id');
-    if (!element) return;
-
-    
-
-}
-const sectionMaleListener = async (event) => {
-    const element = event.target.closest('#male-id');
-    if (!element) return;
-
-   
-
-}
-const sectionFavoriteListener = async (event) => {
-    const element = event.target.closest('#favorite-id');
-    if (!element) return;
-
-   
-
-}
 const sectionSelectListener = async (event) => {
     const element = event.target.closest('.select-user');
     if (!element) return;
 
     const id = element.getAttribute('data-id')
-    await usersStore.onUserChanged(id);
+    await usersStore.onUserChangedFavorite(id);
+    renderSection();
 
 }
 const sectionDeleteListener = async (event) => {
@@ -50,10 +30,6 @@ export const renderSection = (element) => {
     if (!section) {
         section = createSection();
         element.append(section);
-
-        section.addEventListener('click', sectionFemaleListener);
-        section.addEventListener('click', sectionMaleListener);
-        section.addEventListener('click', sectionFavoriteListener);
         
         section.addEventListener('click', sectionSelectListener);
         section.addEventListener('click', sectionDeleteListener);
